@@ -265,15 +265,47 @@ const AdminDashboard = () => {
 
   // 🔥 Remove Item
   const removeItem = (type, index) => {
-    let updatedArray;
-    if (type === "botNames") updatedArray = [...botNames];
-    if (type === "messageTemplates") updatedArray = [...messageTemplates];
-    if (type === "reactions") updatedArray = [...reactions];
-    if (type === "botMessages") updatedArray = [...botMessages];
+    setBotNames((prev) => {
+        if (type === "botNames") {
+            const updatedArray = [...prev];
+            updatedArray.splice(index, 1);
+            updateConstants(type, updatedArray); // Call API in the background
+            return updatedArray; // Immediately update UI
+        }
+        return prev;
+    });
 
-    updatedArray.splice(index, 1); // Remove item at index
-    updateConstants(type, updatedArray);
-  };
+    setMessageTemplates((prev) => {
+        if (type === "messageTemplates") {
+            const updatedArray = [...prev];
+            updatedArray.splice(index, 1);
+            updateConstants(type, updatedArray);
+            return updatedArray;
+        }
+        return prev;
+    });
+
+    setReactions((prev) => {
+        if (type === "reactions") {
+            const updatedArray = [...prev];
+            updatedArray.splice(index, 1);
+            updateConstants(type, updatedArray);
+            return updatedArray;
+        }
+        return prev;
+    });
+
+    setBotMessages((prev) => {
+        if (type === "botMessages") {
+            const updatedArray = [...prev];
+            updatedArray.splice(index, 1);
+            updateConstants(type, updatedArray);
+            return updatedArray;
+        }
+        return prev;
+    });
+};
+
 
   return (
     <div className="p-6 bg-gray-900 text-white min-h-screen flex flex-col md:flex-row text-sm md:text-2xl">

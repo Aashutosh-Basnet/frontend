@@ -1,13 +1,5 @@
 const getApiUrl = () => {
-
-  const currentUrl = window.location.origin;
-  const env = import.meta.env.VITE_NODE_ENV || 'development';
-  
-  // Production environment
-  if (env === 'production') {
     return 'https://uwrbfh.onrender.com/api';
-  }
- 
 };
 
 // Socket.IO configuration

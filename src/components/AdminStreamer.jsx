@@ -29,7 +29,7 @@ const AdminStreamer = () => {
 
   const verifyToken = async (token) => {
     try {
-      const response = await fetch(`${config.API_URL}/api/admin/verify`, {
+      const response = await fetch(`${config.API_URL}/admin/verify`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }

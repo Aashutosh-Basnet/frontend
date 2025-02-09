@@ -1,20 +1,13 @@
-// Determine the API URL based on the current environment
 const getApiUrl = () => {
+
   const currentUrl = window.location.origin;
   const env = import.meta.env.VITE_NODE_ENV || 'development';
   
   // Production environment
   if (env === 'production') {
-    return import.meta.env.VITE_API_URL || currentUrl.replace(/:\d+$/, ':3001');
+    return 'https://uwrbfh.onrender.com/api';
   }
-  
-  // If we're on a dev tunnel
-  if (currentUrl.includes('devtunnels.ms')) {
-    return 'https://r4mb4ww9-3001.inc1.devtunnels.ms';
-  }
-  
-  // Local development
-  return 'http://localhost:3001';
+ 
 };
 
 // Socket.IO configuration

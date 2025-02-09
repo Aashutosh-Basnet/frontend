@@ -2,8 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import { io } from "socket.io-client";
 import ViewerPage from "./ViewerPage";
 
-const API_URL = "http://localhost:3001/api/constants"; // Change for production
-const SOCKET_URL = "http://localhost:3001"; // Change for production
+const API_URL = "https://uwrbfh.onrender.com/api/constants"; // Change for production
+const SOCKET_URL = "https://uwrbfh.onrender.com/api"; // Change for production
 
 const AdminDashboard = () => {
   const [botNames, setBotNames] = useState([]); 
@@ -202,7 +202,7 @@ const AdminDashboard = () => {
   // 🔥 Update Constants
   const updateConstants = async (type, data) => {
     try {
-        const response = await fetch("http://localhost:3001/api/constants", {
+        const response = await fetch("https://uwrbfh.onrender.com/api/constants", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -240,7 +240,7 @@ const AdminDashboard = () => {
   // 🔥 Update Comment
   const updateComment = async (commentId, updatedComment) => {
     try {
-      const response = await fetch("http://localhost:3001/api/comments/update", {
+      const response = await fetch("https://uwrbfh.onrender.com/api/comments/update", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
